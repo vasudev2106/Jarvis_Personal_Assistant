@@ -122,7 +122,20 @@ if __name__ == "__main__":
         elif " vs code" in query:#if vs code in query
             os.startfile("C:\\Users\\vasu\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe") #start the vs code 
             speak("What else you want me to do")    
+    
+         elif 'remember that' in query:#if remember in query 
+            speak("what should i remember sir")#it teakes the note ypu speak and save
+            rememberMessage = takeCommand()
+            speak("you said me to remember"+rememberMessage)
+            remember = open('data.txt', 'w')
+            remember.write(rememberMessage)
+            remember.close()
 
+        elif 'do you remember anything' in query:
+            remember = open('data.txt', 'r')#it give you the note you tell it remember
+            speak("you said me to remember that" + remember.read())
+
+        
         elif "leave" or "exit"  in query:#if leave or exit in query
             speak("Cool!I am leaving Boss!Good Bye!... ")
             break #breaks the loops and code is exited
